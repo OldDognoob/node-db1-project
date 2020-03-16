@@ -9,7 +9,7 @@ function getAllAccounts() {
 function getAccountById(id) {
   return db("account")
     .where({ id })
-    .select("id", "account", "budget");
+    .first();
 }
 
 function insertNewAccount({ name, budget }) {
