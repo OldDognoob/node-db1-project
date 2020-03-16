@@ -16,7 +16,7 @@ function insertNewAccount({ name, budget }) {
   return db("accounts").insert({ name, budget });
 }
 
-function updateAccountById({ id, name, budget }) {
+function updateAccount({ id, name, budget }) {
   return db("accounts")
     .where({ id })
     .update({ name, budget });
@@ -32,6 +32,6 @@ module.exports = {
   getAllAccounts,
   getAccountById,
   insertNewAccount,
-  updateAccountById,
+  updateAccount,
   deleteAccountById
 };
