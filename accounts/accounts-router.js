@@ -6,7 +6,7 @@ const accounts = require("./account-model");
 //activate routers
 const router = express.Router();
 
-router.get("/", (req, res) => {
+router.get("/api/accounts", (req, res) => {
   accounts
     .getAllAccounts()
     .then(result => {
@@ -40,7 +40,7 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
   const { name, budget } = req.body;
-  if (name || budget) {
+  if (!name || !budget) {
     res
       .status(404)
       .json({ message: "Insert name and budget to create a new account" });
